@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="header.css"/>
+    <link rel="stylesheet" href="general.css"/>
+    <link rel="stylesheet" href="signup_page.css"/>
+    <link rel="stylesheet" href="playarea.css"/>
+    <link rel="stylesheet" href="Stats.css"/>
+    <link rel="stylesheet" href="loaderExtras.css"/>
+
+    <!-- Favicon for tab icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-16x16.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-32x32.png"/>
+    <title>Mind Gym</title>
+</head>
+
+<body>
+    
+    <!-- Header Container -->
+    <header>
+        <div class="header-container"> 
+            <div class="mind-gym">
+                <h1>Mind Gym</h1>
+            </div>
+            <div class="brain-icon">
+                <img id="muscleBrain" src="musclebrain.png" alt="Brain Cartoon Image"/>
+            </div>
+        </div>
+    </header>
+    <!-- END HEADER -->
+
+    <!-- CSS animations -->
+    <div class="symbol-container">
+    </div>
+    <div class="symbol-containert">
+    </div>
+    <div class="symbol-containerth">
+    </div>
+    <!-- END CSS ANIMATIONS -->
+
+    <!-- INTRODUCTION/ LANDING PAGE - RAJAY TROWERS-->
+    <section>
+        <div id="homeContainer">
+            <div class="center-box">
+                <!-- <a href="#" class="Chart">Chart</a>
+                <a href="#" class="Chart">Player</a> -->
+                <h1>Welcome to Mind Gym!</h1>
+                <div class="kid">
+                    <img id="muscleBrain" src="kid-multiplication.png" alt=""/>
+                </div>
+                <h3>"Empower Young Minds: Mastering Multiplication Through Play!"</h3>
+                <h6>#1 rated multiplication game for children between ages 8 and 12</h6>
+                <div class="button-div">
+                    <button id="startButton" onclick="hideHome()" class="start-button">Start</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END INTRO -->
+
+    <!-- TASK 1 -->
+    <section>
+        <div id="registration_form" class="form-container">
+            <div class="form-inputs" >
+                <form action="" class="form">
+                    <center><h1>Player Registration</h1></center>
+
+                    <!-- First and Last name -->
+                    <div class="inputs">
+                        <div class="input-group">
+                            <input type="text" id="firstName" minlength="3" required autocomplete="on"><br>
+                            <label for="firstName">First Name</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" id="lastName" minlength="3" required autocomplete="on"><br>
+                            <label for="lastName">Last Name</label>
+                        </div>
+                    </div>
+                    <!-- Email -->
+                    <div class="inputs">
+                        <div class="input-group">
+                            <input type="email" id="email" required autocomplete="on"> <br>
+                            <label for="email">Email Address</label>
+                        </div>
+                        
+                    </div>
+                    <!-- DOB and Age -->
+                    <div class="inputs">
+                        <div class="input-group">
+                            <input type="date" id="dob" required> <br>
+                            <label for="dob">Date of Birth</label>
+                        </div>
+                        <div class="input-group"> 
+                            <input type="number" id="age" disabled placeholder="Select D.O.B"> <br>
+                            <label for="age">Age</label>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <span>Gender: </span>
+                        <input type="radio" id="male" name="gender" value="male" required>
+                        <label for="male">Male</label>
+                    
+                        <input type="radio" id="female" name="gender" value="female" required>
+                        <label for="female">Female</label>
+                    </div>
+
+                    <!-- Task 3 Register button-->
+                    <div class="form-button">
+                        <button id="Register_Btn" onclick="Register()">Register</button>
+                    </div>
+                    <div class="double-button">
+                        <div class="form-button">
+                            <!-- Task 5 Start Button -->
+                           <button id="Start_Btn" type="button" onclick="PlayGame()" disabled>Start Game</button>
+                        </div>
+                        <div class="form-button">
+                            <!-- Task 11 End Button -->
+                            <button id="End_Btn" type="button" onclick="findPercentageScore(), clearForm(), resetPlayArea()" disabled>End Game</button>
+                        </div>
+                    </div>
+                    <div class="form-button">
+                        <button id="findPercentage_Btn" type="button" onclick="findPercentageScore()" disabled>Find Percentage</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- Play Area Waydia-->
+    <section> 
+        <div id="play_area" class="PlayArea">
+            <div id="equation" class="center-box">
+                <h1>Let's Go!</h2>
+                <h6 id="multiplicationHeader">Let's learn multiplication!</h6>
+                <div class="question">
+                    <div class="in">
+                        <input id="factor1" type="number" disabled>
+                    </div>
+                    <div class="in">
+                        <img src="multiply-sign.png" alt=""/>
+                    </div>
+                    <div class="in">
+                        <input id="factor2" type="number" disabled>
+                    </div>
+                    <div class="in">
+                        <img src="equal-sign.png" alt=""/>
+                    </div>
+                    <div class="in">
+                        <input id="PlayerAnswer" type="number" disabled>
+                    </div>
+                </div> 
+
+                <div class="Button-Div">
+                    <!-- Task 7 - Check answer button -->
+                    <button id="Check_Btn" disabled onclick="CheckAnswer()">Check Answer</button>
+                    <!-- Task 8 - Next Button -->
+                    <button id="Next_Btn" disabled onclick="PlayGame(), resetPlayArea()">Next</button> 
+                </div>
+            </div>
+            <!-- Task 9 - Statistics area (Used javascript and InnerHTML to display table) -->
+            <div id="showpercentage" class="stats"></div>
+        </div>
+    </section>
+    <!-- END Play Area Waydia-->
+
+
+    
+    <!-- Statistic Display Area Gabrielle-->
+    <center>
+        <section>
+            <div id="showallplayers" class="players-stats"> </div>
+        </section>
+    </center>
+    
+    <!-- END Statistic Display Area Gabrielle-->
+
+
+    <!-- New Display Area Vanicia-->
+    <section>
+
+    </section>
+    <!-- END New Display Area Vanicia -->
+
+    <center>
+        <div id="showcharts">
+            <center><h2>Frequency Charts</h2></center>
+            <h2>Gender</h2>
+            <div class="female-male">
+                <div id="fbar-container">
+                    <h4 id="stat-value-female">Female 0%</h4>
+                    <img src="bar.png" alt="Female Frequency Bar" id="female-bar"/>
+                </div>
+                <div id="mbar-container">
+                    <h4 id="stat-value-male">Male 0%</h4>
+                    <img src="greenBar.png" alt="Male Frequency Bar" id="male-bar"/>
+                </div>
+            </div>
+            <h2>Percentage Scores</h2>
+            <div class="percentage-scores">
+                <div id="lt50">
+                    <h4>&lt;50%</h4>
+                    <img src="Coral.png" alt=""/>
+                </div>
+                <div id="fif-f9">
+                    <h4>&gt;=50%</h4>
+                    <img src="Orange.png" alt=""/>
+                </div>
+                <div id="six-s9">
+                    <h4>&gt;=60%</h4>
+                    <img src="Gold.png" alt=""/>
+                </div>
+                <div id="sev-s9">
+                    <h4>&gt;=70%</h4>
+                    <img src="green.png" alt=""/>
+                </div>
+                <div id="eig-e9">
+                    <h4>&gt;=80%</h4>
+                    <img src="sky-blue.png" alt=""/>
+                </div>
+                <div id="nin-n9">
+                    <h4>&gt;=90%</h4>
+                    <img src="Purple.png" alt=""/>
+                </div>
+                <div id="hundred">
+                    <h4>100%</h4>
+                    <img src="deep-pink.png" alt=""/>
+                </div>
+            </div>
+        </div>
+    </center>
+    
+
+
+
+
+    <div id="loader-container">
+        <h1>Loading gameplay...</h1>
+        <div class="container">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+      
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="mathgame.js"></script>
+</body>
+</html>
