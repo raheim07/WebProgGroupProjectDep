@@ -155,7 +155,11 @@ function CheckAnswer(){
         multiplicationHeader.innerHTML = 'Correct! Great Job!';
         PlayerAnswer.style.borderColor = "#8ac926";
         multiplicationHeader.style.color = "#8ac926";
+        multiplicationHeader.classList.remove('shake');
         multiplicationHeader.classList.add('grow');
+        setTimeout(() => {
+            multiplicationHeader.classList.remove('grow');
+        }, 500);
         //Update player correct answers total
         PlayerRegistrationData[PlayerRegistrationData.length-1].CorrectAnswers = correct; 
         //Update questions and answer, status
@@ -169,6 +173,7 @@ function CheckAnswer(){
         PlayerAnswer.style.borderColor = "red";
         multiplicationHeader.style.color = "red";
         multiplicationHeader.style.fontSize = "25px";
+        multiplicationHeader.classList.remove('grow');
         multiplicationHeader.classList.add('shake');
         setTimeout(() => {
             multiplicationHeader.classList.remove('shake');
